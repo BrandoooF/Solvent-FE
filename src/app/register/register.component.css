@@ -1,0 +1,71 @@
+#register{
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{font-weight: 100;}
+#form-wrapper{
+    width: 60%;
+    
+    min-height: 100vh;
+    min-width: 500px;
+    min-height: 100%;
+    padding: 20px;
+    padding-top: 40px;
+}
+label{
+    display: block;
+}
+input{
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+    background: #fcfcfc;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+#submit{
+    font-weight: 100;
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+button{
+    background: #3dc1d3;
+    color: #333;
+    font-weight: 100;
+    border-radius: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+input[type="text"], input[type="password"]{
+    height: 40px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+#first, #last, #phone, #password, #password2, #phone, #company{
+    width: 49.5%;
+    display: inline-block;
+}
+#username, #email, #occupation{
+    width: 98.5%;
+}
+input[type="submit"]{
+    margin-top: 20px;
+    background: #3dc1d3;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#welcome{
+    width: 30%;
+    padding: 20px;
+    padding-top: 10%;
+}

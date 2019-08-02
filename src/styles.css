@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+
+body,html{
+    width: 100vw !important;
+    overflow-x: hidden !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+*{
+    box-sizing: border-box !important;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+h5{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+i{
+    /*line-height: 46px !important;*/
+    vertical-align: middle !important;
+}
+.messages{
+    position: fixed;
+    bottom: 0;
+    left: 20%;
+    background: #444;
+    color: white;
+    padding: 40px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin: 20px;
+    margin-top: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+    opacity: 0.9;
+    z-index: 400;
+    text-align: center;
+}
+.messages p{
+    padding: 0;
+}
+.standard-button{
+    padding: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 3px; 
+    background: #ea8685;
+    color: white;
+    height: 30px;
+    margin-top: 12px;
+    margin-left: 20px;
+}
+.large-font p, 
+.large-font li,
+.large-font h4, 
+.large-font h5,
+.large-font h6
+{
+    font-size: 1.1em !important;
+}
+.night-mode div{
+    background: #333 !important;
+    color: #999 !important;
+    border: none !important;
+}
+.night-mode .night-mode-light{
+    background: #444 !important;
+    border-color: #555 !important
+}
+.night-mode .select{
+    color: whitesmoke;
+}
+.night-mode input, .night-mode textarea{
+    background: #444 !important;
+    color: #999 !important;
+    border: none !important;
+}
+.custom-button{
+    background: #3dc1d3;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+.custom-button.red{
+    background: #e66767;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+.tool-tip ul{
+    list-style: none;
+    
+}
+.tool-tip li{
+    border-bottom: 1px solid #999;
+}
+.clickable{
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 601px){
+    .mobile-only{display: none !important;}
+}
+
+@media screen and (max-width: 600px){
+    .mobile-only{display: flex;}
+}

@@ -1,0 +1,29 @@
+<div id="print-wrapper">  
+  <button (click)="toggle()">back</button>
+  <button (click)="printReady()">print</button>
+  <div class="list-wrapper">
+    <div *ngFor="let item of finalList">
+      <div>
+        <h3>{{item.name}}</h3>
+        <p *ngIf="item.showGoal == true">{{item.goal}}</p>
+        
+
+        <div *ngIf="item.showCodes == true">
+          <ul *ngIf="!item.customCodes || item.customCodes.length < 0">
+            <li *ngFor="let code of item.codes">{{code.code}}</li>
+          </ul>
+          <ul>
+            <li *ngFor="let code of item.customCodes">{{code}}</li>
+          </ul>
+        </div>
+
+        <ul *ngFor="let i of item.selected">
+          <li>{{i.name}}</li>
+        </ul>
+        
+
+      </div>
+    </div>
+  </div>
+</div>  
+

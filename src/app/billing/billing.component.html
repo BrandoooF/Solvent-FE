@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 *ngIf="message">{{message}}</h1>
+  <form [formGroup]="cardForm" *ngIf="cardForm">
+    <label>Card Number
+      <input formControlName="number" type="text">
+    </label>
+
+    <p>Expiration Month</p>
+    <label>Month
+        <input formControlName="exp_month" type="text">
+    </label>
+
+    <label>Year
+        <input formControlName="exp_year" type="text" >
+    </label>
+
+    <label>CVC
+        <input formControlName="cvc" type="text">
+    </label>
+
+    <button type="submit" (click)="getToken()">Save</button>
+  </form>
+</div>

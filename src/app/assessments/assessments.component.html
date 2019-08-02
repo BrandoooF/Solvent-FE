@@ -1,0 +1,68 @@
+<div class="container">
+  
+  <div class="master-pane">
+    <button (click)="togglePrint($event)">Print</button>
+      <!--<ion-searchbar
+      [(ngModel)]="myInput"
+      [showCancelButton]="shouldShowCancel"
+      >
+    </ion-searchbar>-->
+    <ul>
+      <li class="clickable" *ngFor="let assessment of assessments" (click)="assessmentClicked(assessment)">
+        <h3>{{assessment.name}}</h3>
+      </li>
+    </ul>
+  </div>
+
+  <div class="detail-pane" padding>
+      
+    <div class="detail-component-inner">      
+            <div>              
+              <div *ngFor="let a of selectedAssessments" > <!--(click)="goToAssessment(a)"-->
+                <div class="assessment-inner">
+                  <h4>{{a.name}}</h4>
+                  <!--<p>{{a.code}}</p>
+                  <p>{{a.icd_code}}</p>  
+                  <p>Begin Assessment</p>-->
+                  <div>
+                    <ul *ngFor="let question of a.questions; index as i">
+                      <li>{{ question.question }}</li>
+                      <select [(ngModel)]="a.answers[i]">
+                        <option type="radio" value="Yes">Yes</option>
+                        <option type="radio" value="No">No</option>
+                      </select>
+                    </ul>
+                  </div>
+
+                  <label>Additional Information</label>
+                  <textarea [(ngModel)]="a.additionalNotes"></textarea>
+                  <input type="submit" value="Save" (click)="saveAssessment(a)">
+                </div>
+              </div>
+            </div>
+            
+            <!--<ul>
+                <p>Completed Assessments</p>
+                <li *ngFor="let a of selectedAssessments" (click)="goToAssessment(a)" no-lines> 
+                  <div class="assessment-inner" *ngIf="assessmentProvider.completedAssessments.indexOf(a.id) != -1">
+                    <h4>{{a.name}}</h4>
+                    <p>{{a.code}}</p>
+                    <p>{{a.icd_code}}</p>  
+                    <p>Begin Assessment</p>
+                  </div>
+                </li>
+              </ul>-->
+       
+
+      <!--<div *ngIf="!selectedAssessment">
+        <p>No Assessments Selected</p>
+      </div>-->
+    </div>
+
+  </div>
+
+  <div class="assessment-print" [ngClass]="{ 'open': printOpen==true,'closed': printOpen==false }">
+    <app-assessment-overview (toggleEvent)="togglePrint($event)" [assessments]="completedAssessments"></app-assessment-overview>
+  </div>
+
+</div>

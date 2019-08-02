@@ -1,0 +1,42 @@
+*{display: relative;}
+.selected{
+    background: #00aced !important;
+}
+
+.container{
+    display: flex;
+}
+.master-pane{
+    width: 280px;
+    background: whitesmoke;
+}
+.detail-pane{
+    width: calc( 100% - 280px) !important;
+}
+
+.detail-component-inner{} 
+        
+.assessment-inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.question{
+    margin-bottom: 40px;
+}
+
+
+.assessment-print{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+.open{
+    top: 0;
+    left: 0;
+}
+.closed{
+    top: 100vh;
+    left: 0;
+}

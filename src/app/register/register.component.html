@@ -1,0 +1,47 @@
+<div id="register">
+  <app-card-checkout></app-card-checkout>
+  <div id="form-wrapper">
+    <h4>Register for an Account</h4>
+      <form [formGroup]="registerForm" novalidate>
+        <label id="first">First Name
+          <input formControlName=first type="text" name="first" placeholder="First Name">
+        </label> 
+        <label id="last">Last Name
+          <input formControlName=last type="text" name="last" placeholder="Last Name"> 
+        </label> 
+        <label id="username">Username  
+          <input formControlName=username type="text" name="username" placeholder="Select A Username">
+        </label>
+        <label id="password">Password
+          <input formControlName=password type="password" name="password" placeholder="Password">
+        </label>
+        <label id="password2">Verify Password
+          <input formControlName=password2 type="password" name="password2" placeholder="Verify Password">
+        </label>
+        <label id="email">Email
+          <input formControlName=email type="text" name="email" placeholder="Email">
+        </label>
+        <label id="phone">Phone
+          <input formControlName=phone type="text" name="phone" placeholder="Phone">
+        </label>
+        <label id="company">Company
+          <input formControlName=location type="text" name="location" placeholder="Company">
+        </label>
+        <label id="occupation">Occupation
+          <input formControlName=occupation type="text"  name="occupation" placeholder="Occupation">
+        </label>
+          <input type="submit" id="submit" value="Create Account" (click)="register()">
+        </form>
+        <!--<p>form : {{ registerForm.status | json }}</p>
+        <p>formdata: {{ registerForm.value | json }}</p>-->
+  </div> 
+  <!--
+  <div id="welcome">
+    <h1>Thanks For Signing up!</h1>
+    <i class="fa fa-hand-scissors"></i>
+  </div> -->
+  <div *ngIf="message" class="messages">
+    <p>{{message}}</p>
+  </div>
+</div>
+

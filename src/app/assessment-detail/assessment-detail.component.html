@@ -1,0 +1,23 @@
+<div class="assessment" *ngIf="assessment" padding>
+  <h4>{{assessment.name}}</h4>
+  <p>{{assessment.diagnosis.code}}</p>
+  <p>{{assessment.diagnosis.description}}</p>
+
+  <div *ngFor="let question of assessment.questions; let i= index" class="question">
+    <h5>{{i+1}}. {{question.question}}</h5>
+        <select [(ngModel)]="question?.question[i]">
+          <option type="radio" value="Yes">Yes</option>
+          <option type="radio" value="No">No</option>
+        </select>
+  </div>
+
+  <ul>
+      <li>
+          <label>Additional Notes</label>
+          <textarea></textarea>
+      </li>
+    </ul>
+  <button ion-button (click)="submitAssesment()">Finish</button>
+</div>
+
+<app-assessment-overview [assessments]="completedAssessment"></app-assessment-overview>

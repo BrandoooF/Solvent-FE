@@ -1,0 +1,406 @@
+#master-pane{    
+    min-height: 100vh;
+    background: #fcfcfc;
+    /*background: linear-gradient(#c94b4b,#4b134f);
+    background: #f7882f;*/
+    width: 300px !important;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box !important;
+}
+.clickable{
+    cursor: pointer;
+}
+#master-container-inner{
+    display: flex;
+}
+.night-mode-exempt{
+    background: transparent !important;
+}
+p{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 15px;
+}
+.diagnosis{
+    cursor: pointer;
+    margin: 0;
+    padding-bottom: 7px;
+}
+.diagnosis p{
+    font-weight: 100;
+    margin-bottom: 0px;
+}
+.diagnosis:hover{
+}
+.selected{
+    background: #888;
+}
+#detail-wrapper{
+    padding: 0;
+}
+.app-detail-container{
+    width: 60%;
+}
+#filter-wrapper{
+    width: 100%;    
+    position: relative;
+}
+#filter{
+ width: 100%;
+ border: none;
+ border-right: 1px solid whitesmoke;
+ /*background: #63cdda;*/
+ color: black;
+ height: 40px;
+ padding-left: 15px;
+}
+.filter-options{
+    display: flex;
+    justify-content: space-between;
+    color: #3dc1d3;
+    margin-bottom: 16px;
+}
+.select{
+    color: #3dc1d3;
+}
+#printview-wrapper{
+    float: right; 
+    width: 20%;
+    min-height:100vh;
+    color: white;
+    position: relative;
+}
+
+/*****************DETAIL ********************/
+
+#detail-container{
+    background: white;
+    border-left: 1px solid white;
+    width: calc(100% - 330px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.diagnosis-detail{
+    margin-bottom: 6px;
+    position: relative;
+    margin-top: 6px;
+    padding: 30px;
+    border-radius: 3px;
+    width: 100%;
+    border: 1px solid whitesmoke;
+    background: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+}
+.detail-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 16px;
+    /*width: 33%;*/
+}
+.toggle-switch-header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.header-item{
+    width:25% !important;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 6px;
+}
+.options-list{
+    display: flex;
+    flex-direction: row;
+    color: #e66767;
+    margin-bottom: 16px;
+}
+.options-list p{
+    font-size: 80%;
+    font-weight: 400;
+    margin-right: 15px;
+}
+
+.diagnosis-name{
+    font-weight: 700;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: #222;
+}
+.diagnosis-meta-header{
+    color: #3dc1d3; 
+    font-weight: bold;
+    margin-bottom: 4px;
+    margin-right: 8px;
+    /*margin-top: 20px;*/
+}
+.goal{
+    color: black;
+    font-weight: bold;
+    margin-top: 0px;
+}
+.interventions-list{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.interventions-list p{
+    /*font-size: 120%;*/
+    cursor: pointer;
+}
+.intervention{
+    /*border-bottom: 1px solid whitesmoke;*/
+}
+.intervention p{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.custom-input{
+    padding: 8px;
+    width: 400px;
+    border-radius: 3px;
+    border: none;
+    background: whitesmoke;
+}
+.custom-button{
+    background: #3dc1d3;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+.add-code,.change-goal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+    border-radius: 3px;
+    box-shadow: 3px 3px 38px whitesmoke;
+    display: none;
+}
+.add-code.open, .change-goal.open{
+    display: block !important;
+}
+.add-code-inner{
+    width: 100%;
+    padding: 16px;
+    background: white;
+}
+.edit-options-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36px;
+}
+.edit-options-container div{
+    width: 50%;
+    display: flex;
+}
+.add-code-header{
+    display: flex;
+    justify-content: space-between;
+}
+.master-options{
+    position: absolute;
+    top: 0px;
+    right: 200px;
+    display: flex;
+    z-index: 300;
+    color: white;
+}
+.master-option{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.master-option p{
+    margin-top: -6px !important;
+}
+.orange{
+    /*color: #f7882f !important;*/
+    color: #e66767;
+}
+.reset{ 
+    /*color: #f7882f;*/
+    display: flex;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.reset i{
+    margin: 0;
+}
+.reset p{    
+    font-size: 60%;
+    margin: 0;    
+}
+.displayNone{
+    display: none !important;
+}
+#center-container{
+    
+    width: 99%;
+    /*background: whitesmoke;*/
+
+}
+#print-final-wrapper{
+    min-height: 400px;
+    height: 100vh;
+    width: 100vw;
+    border: 1px solid white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 500;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 600px){
+    .mobile-only{display: block;}
+    #master-container{
+        background: white;
+    }
+    #master-pane{
+        position: fixed;
+        background: white;
+        top: 0;
+        left: 0;
+        margin-top: 0px;
+        z-index: 10;
+        box-shadow: 4px 4px 20px black;
+        height: 100vh;
+        width: 75vw !important;
+        overflow-y: scroll;      
+    }
+    /*.diagnosis p{
+        font-weight: 400;
+    }
+    .reset i{
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        color: black;
+        text-align: center;
+        padding-top: 13px;
+        box-shadow: 3px 3px 8px #111;
+    }
+    .reset p{
+        display: inline-block;
+        font-family: 'roboto', sans-serif;
+        margin-bottom: 0px;
+    }
+    .master-options{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background: transparent;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        z-index: 500;
+    }
+    .master-option{
+        margin: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    .option-green{}
+    .option-red{}
+    .option-blue{}
+    #master-pane ul{
+        color: black;
+    }
+    .diagnosis-detail{
+        padding-bottom: 30px;
+        margin-bottom: 20px;        
+    }
+    .diagnosis-alt{
+        background: #F2FBFF;
+    }
+    .detail-header{
+        margin-bottom: 20px;
+        color: black;
+        border-bottom: 1px solid #999;
+    }
+    .diagnosis-name{
+        text-align: center !important;
+        color: black;
+        font-size: 190%;
+        font-weight: 600;
+    }
+    .detail-header h5{
+        font-weight: 600;
+    }
+    #printview-wrapper{
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        width: 100vw;
+        margin-top: 0px;
+        z-index: 10;
+        box-shadow: 4px 4px 20px #333;
+        height: calc(100vh - 300px);
+    }
+    .options-list p{
+        border-radius: 10px;
+        font-weight: 700;
+    }
+    #no-diagnoses{
+        padding: 20px;
+        padding-top: 30px;
+        text-align: center;
+        color: #666;
+    }
+    #center-container{
+        width: 100%;
+        height: auto;
+        overflow-y: scroll;
+    }
+    .intervention p{
+        font-weight: 400;
+        color: black;
+        font-size: 100%;
+    }
+    .intervention p:hover{
+        transform: scale(1);
+    }
+    .goal{
+        font-weight: 200;
+        font-size: 100%;
+        width: 100%;
+        color: #666;
+    }
+    .custom-input{
+        width: calc(100% - 54px);
+        border: 1px solid #999;
+        border-bottom: 1px solid #999;
+        color: black;
+        padding: 5px;
+    }
+    .custom-button{
+        color: #f7882f;
+        border: 1px solid #f7882f;
+        background: transparent;
+    }*/
+}
+@media screen and (min-width: 601px){
+    #master-pane{transform: translate(0%) !important;}
+    #printview-wrapper{transform: translate(0%) !important;}    
+}

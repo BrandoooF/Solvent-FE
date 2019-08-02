@@ -1,0 +1,52 @@
+<div *ngIf="user" id="profile-wrapper">
+  
+  <div id="user-info">
+    
+
+    <div class="plan">
+        <div class="icon">
+            <i class="material-icons" style="font-size: 400%;">flash_on</i>
+        </div>
+        <div class="text">
+            <h4>Current Plan: <span>Standard</span></h4>
+            <p>Switch to Pro Plan for access to exclusive features.</p>
+            <button class="standard-button">Upgrade To Pro</button>
+        </div>
+    </div>
+
+    <h2 style="color: #999;">User Profile</h2>
+
+    <form [formGroup]="editForm">  
+      
+      <label for="first">First Name 
+          <input formControlName=first name="first" id="first">
+      </label>
+      
+      <label for="last">Last Name
+          <input formControlName=last name="last" id="last">
+      </label>
+      
+      <label for="username">Username
+          <input formControlName=username name="username" id="username">
+      </label>
+      <label for="username">Email
+          <input formControlName=email name="email" id="email">
+      </label>
+
+      <input type="checkbox" name="notifications" value="true">Recieve Notifications<br>
+      <p style="color: #999;margin-top: 0px;">We send out periodic notifications to keep you in the loop.</p>
+      
+      <input type="submit" value="Save Changes" class="submit">
+    </form>
+    
+    
+  </div>
+  <!--<div *ngIf="profile" id="profile-info">
+    <form [formGroup]="editProfileForm">
+      <label for="phone">Phone
+          <input formControlName=phone name="phone" id="phone">
+      </label>      
+      <input type="submit" value="Update Profile" class="submit" (click)="updateProfile()">
+    </form>
+  </div>-->
+</div>

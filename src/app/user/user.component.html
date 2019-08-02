@@ -1,0 +1,19 @@
+<div *ngIf="user && profile" id="user-container">
+  <div class="user-img-text">
+    <div class="user-img-container">
+      <a routerLink="/profile">
+        <!--<div class="user-img"><h1>{{icon}}</h1></div> -->
+        <i class="material-icons">
+            account_circle
+            </i>
+      </a>
+    </div>
+    <div class="user-info-container">
+      <p class="user-name"><a routerLink="/profile">{{user.first_name}} {{user.last_name}}</a></p>
+      <!--<p class="user-position">{{profile.position}}</p>-->
+    </div>
+  </div>
+  <!--<div class="settings">
+    <a routerLink="/logout" (click)="logout()"><p>Logout</p></a>
+  </div>  -->
+</div>

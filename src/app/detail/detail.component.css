@@ -1,0 +1,51 @@
+#printview-wrapper{
+    float: right; 
+    width: 20%;
+    min-height:100vh;
+    color: white;
+}
+.diagnosis-detail{
+    padding: 30px;
+    float: left;
+    width: 100%;
+}
+.detail-header{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.options-list{
+    display: flex;
+    flex-direction: row;
+    color: #f7882f;
+}
+.options-list p{
+    font-size: 80%;
+    font-weight: 400;
+    margin-right: 15px;
+}
+.options-list p:hover{
+    transform: scale(1.2);
+}
+.diagnosis-name{
+    font-weight: 100;
+    color: #333;
+}
+.goal{
+    font-weight: 100;
+}
+.interventions-list p{
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.intervention p{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.intervention p:hover{
+    transform: scale(1.1);
+}
+.orange{
+    color: #f7882f !important;
+}

@@ -1,0 +1,16 @@
+<div [@printState]="viewState.printView" id="printview-container">
+  <div (click)="changeViewState()" id="print-button" [class.blackWhite]="viewState.printView=='expanded'">
+      <p><i class="fa fa-print"></i> Print View</p>
+  </div>
+  
+  <div *ngFor="let diagnosis of finalList" id="final-list">
+    <h3>{{diagnosis.name}}</h3>
+    <ul>
+      <li *ngFor="let intervention of diagnosis.selected"><p>{{intervention.name}}</p></li>
+    </ul>
+  </div>
+  <div class="codes">
+
+  </div>
+  <div class="done m>obile-only" (click)="togglePrintView()"><p>Close</p></div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container" style="padding: 20px;">
+  <button (click)="togglePrint()" class="clickable">Print</button>
+  <div *ngIf="assessments.length > 0" class="container">
+    <div *ngFor="let assessment of assessments">
+      <h1>{{assessment.name }}</h1>
+      <div *ngFor="let question of assessment.questions; index as i">
+        <p>{{ question.question }}</p>
+        <p>{{ assessment.answers[i] }}</p>
+      </div>
+
+      <small>Additional Information</small>
+      <p>{{assessment.additionalNotes}}</p>
+    </div>
+  </div>
+</div>

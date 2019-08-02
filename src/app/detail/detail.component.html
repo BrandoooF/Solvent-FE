@@ -1,0 +1,33 @@
+<div style="float: left; width: 80%;">
+    <div *ngFor="let diagnosis of diagnoses" class="diagnosis-detail">
+        <div class="detail-header">
+            <h1 class="diagnosis-name">{{diagnosis.name}}</h1>
+            <h5 class="goal">Goal: {{diagnosis.goal}}</h5>
+        </div>
+        
+        
+        <div class="interventions-list">
+          <h5>Interventions</h5>
+          <div class="options-list">
+            <p (click)="selectAll(diagnosis)">Select All</p>
+            <p (click)="deselectAll(diagnosis)">Deselect All</p>
+            <p (click)="addCustom()">Add Custom</p>
+        </div>
+          <div *ngFor="let intervention of diagnosis.interventions" (click)="addIntervention(intervention)" class="intervention">
+              <i class="fa fa-circle-o orange" *ngIf="this.selectedInterventions.indexOf(intervention) == -1"></i>
+              <i class="fa fa-circle orange" *ngIf="this.selectedInterventions.indexOf(intervention) != -1"></i>
+              <p>{{intervention.name}}</p>
+          </div>
+        </div>
+        <div>
+            <p>{{customIntervention}}</p>
+            <form novalidate>
+                <input #customInput [ngModel]="customIntervention" name="custom">
+                <input type="submit" value="ADD" (click)="addCustom(diagnosis, customInput.value)">
+            </form>            
+        </div>
+    </div>    
+</div>
+<div id="printview-wrapper">
+    <app-printview [finalList]="finalList" [viewState]="viewState"></app-printview>
+</div>

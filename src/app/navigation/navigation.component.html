@@ -1,0 +1,21 @@
+<div class="container">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light" id="navigation">
+        <h3 routerLink="/">Solvent</h3>
+        <!--<ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/">Solvent</a>
+          </li>
+        </ul>-->
+    </nav>
+        
+    <div id="app-user">
+      <app-user *ngIf="isLoggedIn==true" ></app-user>
+    </div>
+</div>
+<div class="messages" *ngIf="message != 'none'">{{message}}</div>
+
+    
+    <!--<p>This.isLoggedIn: {{isLoggedIn}}</p>
+    <p>this.authservice.isLoggedIn: {{this.authservice.isLoggedIn}}</p>-->
+  
+  

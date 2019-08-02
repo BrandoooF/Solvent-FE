@@ -1,0 +1,68 @@
+.row{
+    padding: 16px;
+}
+/*.row{
+    min-height: 100vh;
+}
+.register{
+    background: #34495e;
+    padding-top: 20%;
+}
+.register{color: white;}
+.register h4{
+    border: 1px solid #f7882f;
+    background: #f7882f;
+    border-radius: 10px;
+    color: white;
+    width: 100px;
+    text-align: center;
+}
+h1, h4{font-weight: 100;}
+p{
+    color: #999;
+    font-size: 80%;
+}
+.login{
+    background: #f7882f;
+    padding-top: 20%;
+}
+.login p{ color: black;}
+.form-wrapper{
+    padding-top: 20px;
+}
+#username{
+    border: none;
+    background: none;
+    border-bottom: 1px solid white;
+    color: white !important;
+}
+#password{
+    border: none;
+    background: none;
+    border-bottom: 1px solid white;
+    color: white !important;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+#submit{
+    background: #34495e;
+    border: none;
+    color: white;
+    font-weight: 100;
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+button{
+    background: #f7882f;
+    border: none;
+    color: white;
+    font-weight: 100;
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}*/

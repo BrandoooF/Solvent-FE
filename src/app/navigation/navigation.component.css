@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    background: #3dc1d3;
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.container a{
+    color: white !important;
+}
+#navigation{
+    /*position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    background: #888;*/
+    flex-grow: 4;
+}
+#app-user{
+    
+}
+@media screen and (max-width: 600px){
+    .container{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}

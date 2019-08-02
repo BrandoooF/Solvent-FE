@@ -1,0 +1,168 @@
+<div class="" id="master-container" [ngClass]="{'large-font': largeFont==true, 'night-mode': nightMode==true}">
+    
+  <div class="" id="master-container-inner">
+      
+    <div id="master-pane" class="col-md-2" [@printState]="viewState.printView" [@masterState]="masterPane" [class.displayNone]="viewState.printView=='expanded'">
+      <div id="filter-wrapper">
+        <form>
+            
+          <input placeholder="Filter" id="filter" [(ngModel)]="searchText" name="filter">
+          <!--<i class="material-icons">filter_list</i>
+          <i class="material-icons">sort_by_alpha</i>
+          <i class="material-icons">format_list_numbered</i>-->
+          
+        </form>
+
+        <div class="filter-options">
+            <div class="reset master-option" (click)="inBeta()"><i class="material-icons">filter_list</i><p>Filter</p></div>
+            <div class="reset master-option" (click)="sortByName()"><i class="material-icons">sort_by_alpha</i><p>Sort By Name</p></div>
+            <div class="reset master-option" (click)="inBeta()"><i class="material-icons">format_list_numbered</i><p>Sort By Code</p></div>
+        </div>
+        
+      </div>
+
+        <ul>
+          <li *ngFor="let diagnosis of diagnoses | filter : searchText" (click)="addDiagnosis(diagnosis.id)"
+           class="diagnosis" [class.select]="this.selectedDiagnoses.indexOf(diagnosis)!=-1">
+           <p>{{diagnosis.name }}</p>
+          </li>
+        </ul>
+    </div>
+
+
+    <div id="detail-container" class="night-mode-light" style="padding:0;">
+        <!--<app-detail [diagnoses]="selectedDiagnoses" [finalList]="finalList" [viewState]="viewState"></app-detail>-->
+        
+        <div id="center-container" class="night-mode-light" [class.displayNone]="this.viewState.printView=='expanded'">
+          <div class="master-options night-mode-exempt">
+              <div class="reset master-option night-mode-exempt" (click)="reset()"><i class="material-icons">settings_backup_restore</i><p>Reset</p></div>
+              <div class="reset master-option night-mode-exempt" (click)="nightModeToggle()"><i class="material-icons">brightness_3</i><p>Night Mode</p></div>
+              <div class="reset master-option night-mode-exempt" (click)="fontToggle()"><i class="material-icons">format_size</i><p>text size</p></div>
+              <div class="reset master-option night-mode-exempt" (click)="printReady()"><i class="material-icons">file_copy</i><p>Copy/Print</p></div>
+              <div class="reset master-option night-mode-exempt" (click)="inBeta()"><i class="material-icons">help_outline</i><p>Guide</p></div>
+              <div class="reset master-option night-mode-exempt" (click)="goToBilling()"><i class="material-icons">credit_card</i><p>Billing</p></div>
+              <div class="reset master-option night-mode-exempt" (click)="goToContact()"><i class="material-icons">contacts</i><p>Contact</p></div>
+              <div class="reset master-option mobile-only night-mode-exempt" (click)="toggleMaster()"><i class="fa fa-lg fa-plus option-blue"><p></p></i></div>
+              <div class="reset master-option mobile-only night-mode-exempt" (click)="togglePrint()"><i class="fa fa-lg fa-check option-green"><p></p></i></div>
+              
+              <button (click)="inBeta()" style="padding: 0px;padding-left: 8px;padding-right: 8px;border-radius: 3px; background: #ea8685;color: white;height: 30px;margin-top: 12px;margin-left: 20px;">Upgrade To Pro</button>
+
+          </div>
+
+          <div id="no-diagnoses" class="mobile-only" *ngIf="selectedDiagnoses.length == 0"><p>Click the ADD button and select at least one diagnosis to get Started</p></div>
+            
+          <div *ngFor="let diagnosis of selectedDiagnoses;let i = index" class="diagnosis-detail" 
+            [class.diagnosis-alt]="i%2 != 0" >
+              <div class="detail-header" appTooltip>
+                  <h3 class="diagnosis-name clickable header-item" (click)="addDiagnosis(diagnosis.id)">{{diagnosis.name}}</h3>
+                  
+                  <div class="header-item clickable" (hover)="showGoalTip($event)">
+                      <div class="toggle-switch-header">
+                        <p class="diagnosis-meta-header" (click)="openChangeGoal($event)">Goal</p>
+                        <ui-switch [checked]="false" (change)="toggleShowGoal($event,diagnosis)"></ui-switch>                        
+                      </div>
+                      <p class="goal" (click)="openChangeGoal($event)">{{diagnosis.goal}}</p>
+                  </div>
+                  
+                  
+
+                  <div class="add-code">
+                    <div class="add-code-inner">
+                      <div class="add-code-header">
+                        <div>
+                          <h5>Add Code</h5>
+                          <small>Enter any number of codes, <strong>separate codes with a comma (,)</strong></small>
+                        </div>
+                        
+                        <i class="material-icons clickable" (click)="closeAddCode($event)">clear</i>
+                      </div>
+                      <form novalidate>
+                          <input #customCodes name="custom" class="custom-input" *ngIf="diagnosis.codes.length < 0" [value]="" placeholder="Enter Custom Code(s)">
+                          <input #customCodes name="custom" class="custom-input" *ngIf="diagnosis.codes.length > 0" [value]="diagnosis.codes[0].code" placeholder="Enter Custom Code(s)">
+                          <input type="submit" class="custom-button" value="ADD" (click)="addCodesToList($event, diagnosis, customCodes.value)">
+                      </form>
+                    </div>
+                  </div>
+                  
+                  <div class="change-goal">
+                    <div class="add-code-inner">
+                      <div class="add-code-header">
+                        <div>
+                          <h5>Change Goal</h5>
+                        </div>
+                        
+                        <i class="material-icons clickable" (click)="closeChangeGoal($event)">clear</i>
+                      </div>
+                      <form novalidate>
+                          <input #customGoal name="custom" class="custom-input" [value]="diagnosis.goal" placeholder="Enter Goal Here">
+                          <input type="submit" class="custom-button" value="ADD" (click)="addGoalToDiagnosis($event, diagnosis, customGoal.value)">
+                      </form>
+                    </div>
+                  </div>    
+                  
+              </div>             
+              
+              <div class="interventions-list">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <!--<h5>Interventions</h5>-->
+                <div class="options-list">
+                  <p class="custom-button" (click)="selectAll(diagnosis)">Select All</p>
+                  <p class="custom-button" (click)="deselectAll(diagnosis)">Deselect All</p>
+                  <p class="custom-button" (click)="addDiagnosis(diagnosis.id)"><!--<i class="material-icons">delete</i>-->Remove Diagnosis</p>
+                  <!--<p (click)="addCustom()">Add Custom</p>-->
+                </div>
+                </div>
+
+                <div>
+                  <div *ngFor="let intervention of diagnosis.interventions" (click)="addIntervention(intervention)" class="intervention">
+                      <p>
+                      <!--<i class="fa fa-circle-o orange" *ngIf="this.selectedInterventions.indexOf(intervention) == -1"></i>-->
+                      <i class="material-icons" *ngIf="this.selectedInterventions.indexOf(intervention) == -1" style="color: #3dc1d3;">check_box_outline_blank </i>
+                      <!--<i class="fa fa-circle orange" *ngIf="this.selectedInterventions.indexOf(intervention) != -1"></i>-->
+                      <i class="material-icons" *ngIf="this.selectedInterventions.indexOf(intervention) != -1" style="color: #3dc1d3;">check_box</i>
+                      {{intervention.name}}</p>
+                  </div>
+
+                  <div>
+                      <p>{{customIntervention}}</p>
+                      <form novalidate>
+                          <input #customInput [ngModel]="customIntervention" name="custom" class="custom-input" placeholder="Add Custom Intervention">
+                          <input type="submit" class="custom-button" value="ADD" (click)="addCustom(diagnosis, customInput.value)">
+                      </form>            
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="edit-options-container">
+                <div class="clickable header-item"> 
+                  <div class="toggle-switch-header" style="display: block;">
+                    <p class="clickable diagnosis-meta-header" (click)="openAddCode($event)">Codes</p>
+                    <ui-switch [checked]="false" (change)="toggleShowCodes($event, diagnosis)"></ui-switch> 
+                    <!--<i class="material-icons clickable" title="Click to Edit Code">format_list_numbered</i>-->
+                  </div>
+                  <p class="goal" (click)="openAddCode($event)" title="Click to Edit Code"><span *ngIf="!diagnosis.customCodes && diagnosis.codes.length > 0">{{diagnosis.codes[0].code}}&nbsp;</span></p>
+                  <p class="goal" (click)="openAddCode($event)" title="Click to Edit Code"><span *ngFor="let code of diagnosis.customCodes">{{code}}&nbsp;</span></p>
+                </div>
+
+                <div style="justify-content: flex-end;cursor: pointer;">
+                  <i class="material-icons clickable" style="color: red;" (click)="addDiagnosis(diagnosis.id)">
+                      delete
+                  </i>
+                  <p class="clickable">Remove Diagnosis</p>
+                </div>
+              </div>
+
+          </div>    
+      </div>
+      <!--<div id="printview-wrapper" [@printerState]="printPane">
+          <app-printview [finalList]="finalList" [viewState]="viewState"></app-printview>
+      </div>-->
+    </div>
+      
+  </div>
+  <div id="print-final-wrapper" [@finalPrintState]="finalPrint">
+    <app-print-final></app-print-final>
+  </div>
+
+</div>

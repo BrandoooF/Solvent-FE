@@ -1,0 +1,78 @@
+#profile-wrapper{
+    min-height: 100vh;
+    position: relative;
+    padding-top: 20px;
+}
+.plan{
+    background: #fcfcfc;
+    border: 1px solid whitesmoke;
+    color: #3dc1d3;
+    border-radius: 3px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+.plan .text{width: 85%;}
+.plan h4{margin-bottom: 0px;}
+.plan h4 span{color: #3dc1d3;}
+.plan p{color: #999;margin-top: 0px;}
+.plan small{}
+.standard-button{
+    background: #3dc1d3 !important;
+    color: white;
+    margin-left: 0px;
+}
+#first, #last, #phone, #password, #password2, #phone, #company{
+    width: 98.5%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#username, #email, #occupation{
+    width: 98.5%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#user-info{
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+#profile-info{
+    max-width: 600px;
+    margin: auto;
+}
+input, textarea{
+    border: 1px solid whitesmoke;
+    background: #fcfcfc;
+    padding: 8px;
+    font-size: 114%;
+}
+textarea{
+    width: 100%;
+    height: 200px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.submit{
+    background: #3dc1d3;
+    border: none;
+    color: white;
+    font-weight: 100;
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+}
+label{
+    color: #999;
+    font-weight: 100;
+    font-size: 85%;
+    width: 49%;
+}
